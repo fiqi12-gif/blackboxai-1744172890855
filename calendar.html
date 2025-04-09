@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar | Personal Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="calendar.js" defer></script>
+</head>
+<body class="bg-gray-50">
+    <div id="header"></div>
+    
+    <main class="container mx-auto px-4 py-8">
+        <div class="flex justify-between items-center mb-6 bg-white p-4 rounded-lg shadow">
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-800" id="month-year-display">Calendar</h1>
+            <div class="flex space-x-3">
+                <button id="prev-month" class="px-4 py-2 bg-blue-100 text-blue-700 rounded-md hover:bg-blue-200 transition-colors flex items-center">
+                    <i class="fas fa-chevron-left mr-2"></i>Prev
+                </button>
+                <button id="today" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors">
+                    Today
+                </button>
+                <button id="next-month" class="px-4 py-2 bg-blue-100 text-blue-700 rounded-md hover:bg-blue-200 transition-colors flex items-center">
+                    Next<i class="fas fa-chevron-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div id="calendar" class="bg-white rounded-lg shadow overflow-hidden">
+            <div class="grid grid-cols-7 bg-gray-100">
+                <div class="py-2 text-center font-medium">Sun</div>
+                <div class="py-2 text-center font-medium">Mon</div>
+                <div class="py-2 text-center font-medium">Tue</div>
+                <div class="py-2 text-center font-medium">Wed</div>
+                <div class="py-2 text-center font-medium">Thu</div>
+                <div class="py-2 text-center font-medium">Fri</div>
+                <div class="py-2 text-center font-medium">Sat</div>
+            </div>
+            <div id="calendar-days" class="grid grid-cols-7">
+                <!-- Calendar days will be populated by JavaScript -->
+            </div>
+        </div>
+        
+        <!-- Add Event Button -->
+        <div class="fixed bottom-8 right-8">
+            <button id="add-event" class="bg-blue-600 hover:bg-blue-700 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg">
+                <i class="fas fa-plus text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- Event Modal -->
+        <div id="event-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+            <div class="bg-white rounded-lg p-6 w-full max-w-md">
+                <h2 class="text-xl font-semibold mb-4">Add New Event</h2>
+                <form id="event-form" class="space-y-4">
+                    <div>
+                        <label for="event-title" class="block text-sm font-medium text-gray-700">Title*</label>
+                        <input type="text" id="event-title" required
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="event-date" class="block text-sm font-medium text-gray-700">Date*</label>
+                        <input type="date" id="event-date" required
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="event-time" class="block text-sm font-medium text-gray-700">Time</label>
+                        <input type="time" id="event-time"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="event-color" class="block text-sm font-medium text-gray-700">Color</label>
+                        <select id="event-color"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                            <option value="blue" selected>Blue</option>
+                            <option value="red">Red</option>
+                            <option value="green">Green</option>
+                            <option value="yellow">Yellow</option>
+                        </select>
+                    </div>
+                    <div class="flex justify-end space-x-3">
+                        <button type="button" id="cancel-event" class="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">
+                            Cancel
+                        </button>
+                        <button type="submit" class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700">
+                            Save Event
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    <div id="footer"></div>
+</body>
+</html>
