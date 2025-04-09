@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="main.js" defer></script>
+    <style>
+        body {
+            background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+        }
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.3);
+            z-index: -1;
+        }
+        .content-box {
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+        .content-box:hover {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-overlay"></div>
+    <div id="header"></div>
+    
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">Schedule Dashboard</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <a href="calendar.html" class="content-box p-6 rounded-lg hover:shadow-lg">
+                <div class="flex items-center">
+                    <i class="fas fa-calendar-alt text-blue-500 text-2xl mr-4"></i>
+                    <h2 class="text-xl font-semibold">Calendar</h2>
+                </div>
+            </a>
+            
+            <a href="tasks.html" class="content-box p-6 rounded-lg hover:shadow-lg">
+                <div class="flex items-center">
+                    <i class="fas fa-tasks text-green-500 text-2xl mr-4"></i>
+                    <h2 class="text-xl font-semibold">Tasks</h2>
+                </div>
+            </a>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="content-box p-6 rounded-lg">
+                <h2 class="text-xl font-semibold mb-4">Today's Schedule</h2>
+                <div id="today-schedule" class="space-y-4">
+                    <!-- Today's schedule items will be added by JavaScript -->
+                </div>
+            </div>
+            <div class="content-box p-6 rounded-lg">
+                <h2 class="text-xl font-semibold mb-4">Recent Tasks</h2>
+                <div id="recent-tasks" class="space-y-3">
+                    <!-- Tasks will be added by JavaScript -->
+                </div>
+                <a href="tasks.html" class="mt-4 inline-block text-blue-600 hover:text-blue-800 text-sm">
+                    View all tasks →
+                </a>
+            </div>
+        </div>
+    </main>
+    
+    <div id="footer"></div>
+</body>
+</html>
